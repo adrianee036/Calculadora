@@ -1,6 +1,7 @@
 var operandoa;
 var operandob;
 var operacion;
+var res = 0;
 
 function init(){
     var resultado = document.getElementById('resultado');
@@ -22,34 +23,64 @@ function init(){
     var cero = document.getElementById('cero');
   }
 
-  uno.onclick = function(e){
+uno.onclick = function(e){
+    while(parseFloat(resultado.textContent) == res){
+        limpiar();
+    }
     resultado.textContent = resultado.textContent  + "1";
 }
 dos.onclick = function(e){
+    while(parseFloat(resultado.textContent) == res){
+        limpiar();
+    }
     resultado.textContent = resultado.textContent  + "2";
 }
 tres.onclick = function(e){
+    while(parseFloat(resultado.textContent) == res){
+        limpiar();
+    }
     resultado.textContent = resultado.textContent  + "3";
 }
 cuatro.onclick = function(e){
+    while(parseFloat(resultado.textContent) == res){
+        limpiar();
+    }
     resultado.textContent = resultado.textContent  + "4";
 }
 cinco.onclick = function(e){
+    while(parseFloat(resultado.textContent) == res){
+        limpiar();
+    }
     resultado.textContent = resultado.textContent  + "5";
 }
 seis.onclick = function(e){
+    while(parseFloat(resultado.textContent) == res){
+        limpiar();
+    }
     resultado.textContent = resultado.textContent  + "6";
 }
 siete.onclick = function(e){
+    while(parseFloat(resultado.textContent) == res){
+        limpiar();
+    }
     resultado.textContent = resultado.textContent  + "7";
 }
 ocho.onclick = function(e){
+    while(parseFloat(resultado.textContent) == res){
+        limpiar();
+    }
     resultado.textContent = resultado.textContent  + "8";
 }
 nueve.onclick = function(e){
+    while(parseFloat(resultado.textContent) == res){
+        limpiar();
+    }
     resultado.textContent = resultado.textContent  + "9";
 }
 cero.onclick = function(e){
+    while(parseFloat(resultado.textContent) == res){
+        limpiar();
+    }
     resultado.textContent = resultado.textContent  + "0";
 }
 reset.onclick = function(e){
@@ -90,23 +121,23 @@ function limpiar(){
     operacion = "";
   }
 
-function resolver(){
-    var res = 0;
-    switch(operacion){
-      case "+":
-        res = parseFloat(operandoa) + parseFloat(operandob);
-        break;
-      case "-":
-          res = parseFloat(operandoa) - parseFloat(operandob);
-          break;
-      case "*":
-        res = parseFloat(operandoa) * parseFloat(operandob);
-        break;
-      case "/":
-        res = parseFloat(operandoa) / parseFloat(operandob);
-        break;
-    }
-    resetear();
-    resultado.textContent = res;
-    window.localStorage.setItem('lavaina', resultado.textContent)
+function resolver(){       
+        switch(operacion){
+        case "+":
+            res = parseFloat(operandoa) + parseFloat(operandob);
+            break;
+        case "-":
+            res = parseFloat(operandoa) - parseFloat(operandob);
+            break;
+        case "*":
+            res = parseFloat(operandoa) * parseFloat(operandob);
+            break;
+        case "/":
+            res = parseFloat(operandoa) / parseFloat(operandob);
+            break;
+        }
+        resetear();
+        resultado.textContent = res;
+        window.localStorage.setItem('lavaina', resultado.textContent)
+        
   }
