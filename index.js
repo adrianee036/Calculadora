@@ -2,6 +2,7 @@ var operandoa;
 var operandob;
 var operacion;
 var res = 0;
+var lstHistorial = [];
 
 function init(){
     var resultado = document.getElementById('resultado');
@@ -98,12 +99,12 @@ resta.onclick = function(e){
 }
 multiplicacion.onclick = function(e){
     operandoa = resultado.textContent;
-    operacion = "*";
+    operacion = "x";
     limpiar();
 }
 division.onclick = function(e){
     operandoa = resultado.textContent;
-    operacion = "/";
+    operacion = "÷";
     limpiar();
 }
 igual.onclick = function(e){
@@ -129,15 +130,21 @@ function resolver(){
         case "-":
             res = parseFloat(operandoa) - parseFloat(operandob);
             break;
-        case "*":
+        case "x":
             res = parseFloat(operandoa) * parseFloat(operandob);
             break;
-        case "/":
+        case "÷":
             res = parseFloat(operandoa) / parseFloat(operandob);
             break;
         }
-        resetear();
         resultado.textContent = res;
-        window.localStorage.setItem('lavaina', resultado.textContent)
+        lstHistorial.push({num1:operandoa, num2:operandob, op:operacion, resultado:resultado.textContent});
+        lstHistorial.forEach(element => {
+            let elements = document.getElementById("historial");
+            let p = document.createElement("p");
+            p.innerHTML = element.num1 + " " + element.op + " " + element.num2 + " = " + element.resultado;
+            elements.appendChild(p);
+        });
+        lstHistorial = [];
         
   }
